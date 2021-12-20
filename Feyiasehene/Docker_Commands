@@ -5,21 +5,23 @@ sudo usermod -a -G docker ec2-user
 
 LOGOUT and login
 
+sudo su - ec2-user
+
 # Install GIT and Download Course Repo
 sudo yum install git
-git clone https://github.com/acantril/aws-sa-associate-saac02.git
+git clone https://github.com/dpremph3/ECS_Containers.git
 
 
 # Build Docker Image
-cd aws-sa-associate-saac02/09-Containers-ECS/container_of_cats/container
-docker build -t containerofcats .
-docker images --filter reference=containerofcats
+cd ECS_Containers/Feyaisehene/container
+docker build -t containeroffeyiase .
+docker images --filter reference=containeroffeyiase
 
 # Run Container from Image
-docker run -t -i -p 80:80 containerofcats
+docker run -t -i -p 80:80 containeroffeyiase
 
 # Upload Container to Dockerhub (optional)
 docker login --username=YOUR_USER
 docker images
-docker tag IMAGEID YOUR_USER/containerofcats
-docker push YOUR_USER/containerofcats:latest
+docker tag IMAGEID YOUR_USER/containeroffeyiase
+docker push YOUR_USER/containeroffeyaise:latest
